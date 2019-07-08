@@ -38,17 +38,19 @@ tech.root: display
 
 ## -description
 
-The GPU's physical address.
+The GPU's physical address. In the DDI, physical memory references always take the form of a SegmentId::SegmentOffset pair.
+The D3DGPU_PHYSICAL_ADDRESS structure is used in several DDIs.
+
 
 ## -struct-fields
 
 ### -field SegmentId
 
-The segment Id.
+The driver ID of a memory segment. Note that the driver segment IDs start from 1. When SegmentId is 0, the allocation is in system memory and SegmentOffset is equal to the system memory physical address.
 
 ### -field SegmentOffset
  
-The segment offset.
+The segment offset. The offset in bytes from the start of a memory segment when SegmentId is greater than 0. This is physical memory address when SegmentId is 0.
 
 ## -remarks
 
